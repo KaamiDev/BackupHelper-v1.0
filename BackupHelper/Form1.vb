@@ -17,9 +17,9 @@
         pinfo.WindowStyle = ProcessWindowStyle.Hidden
         Dim p As Process = Process.Start(pinfo)
         If Not p.WaitForExit(60000) Then
-            MsgBox("Error",, "Process timed out..")
+            MsgBox("Process timed out..",, "Error")
         Else
-            MsgBox("Success!",, "Backup Saved Successfully!")
+            MsgBox("Backup Saved Successfully!",, "Success!")
             endLoading()
             Process.Start(DestinationTextbox.Text)
         End If

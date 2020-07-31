@@ -13,7 +13,7 @@
         startLoading()
         Dim pinfo As New ProcessStartInfo()
         pinfo.FileName = "C:\Users\HP\Documents\thingy\7z.exe"
-        pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p@" + passwordTextbox.Text
+        pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p" + passwordTextbox.Text
         pinfo.WindowStyle = ProcessWindowStyle.Hidden
         Dim p As Process = Process.Start(pinfo)
         If Not p.WaitForExit(60000) Then

@@ -23,10 +23,20 @@ Public Class Form1
                 MsgBox("Process timed out..",, "Error")
             Else
                 MsgBox("Backup Saved Successfully!",, "Success!")
+                If saveCheckbox.Checked Then
+                    My.Settings.Backup = backupTextbox.Text
+                    My.Settings.Destination = DestinationTextbox.Text
+                    My.Settings.Password = passwordTextbox.Text
+                Else
+                    My.Settings.Backup = ""
+                    My.Settings.Destination = ""
+                    My.Settings.Password = ""
+                End If
+                My.Settings.Save()
                 endLoading()
                 Process.Start(DestinationTextbox.Text)
-            End If
-        Else
+                End If
+                Else
             MsgBox("Please make sure all fields are filled in and valid.",, "Error")
         End If
     End Sub
@@ -74,4 +84,10 @@ Public Class Form1
             End If
         End If
     End Function
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DestinationTextbox.Text = My.Settings.Destination
+        backupTextbox.Text = My.Settings.Backup
+        passwordTextbox.Text = My.Settings.Password
+    End Sub
 End Class

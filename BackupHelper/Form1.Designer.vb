@@ -37,6 +37,7 @@ Partial Class Form1
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.showHideBtn = New System.Windows.Forms.Button()
         Me.passwordTextbox = New System.Windows.Forms.TextBox()
+        Me.saveCheckbox = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -122,7 +123,7 @@ Partial Class Form1
         '
         'runBackupBtn
         '
-        Me.runBackupBtn.Location = New System.Drawing.Point(267, 464)
+        Me.runBackupBtn.Location = New System.Drawing.Point(267, 505)
         Me.runBackupBtn.Name = "runBackupBtn"
         Me.runBackupBtn.Size = New System.Drawing.Size(122, 40)
         Me.runBackupBtn.TabIndex = 4
@@ -159,11 +160,24 @@ Partial Class Form1
         Me.passwordTextbox.Size = New System.Drawing.Size(394, 26)
         Me.passwordTextbox.TabIndex = 0
         '
+        'saveCheckbox
+        '
+        Me.saveCheckbox.AutoSize = True
+        Me.saveCheckbox.Checked = True
+        Me.saveCheckbox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.saveCheckbox.Location = New System.Drawing.Point(416, 458)
+        Me.saveCheckbox.Name = "saveCheckbox"
+        Me.saveCheckbox.Size = New System.Drawing.Size(184, 24)
+        Me.saveCheckbox.TabIndex = 6
+        Me.saveCheckbox.Text = "Save these settings?"
+        Me.saveCheckbox.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 538)
+        Me.ClientSize = New System.Drawing.Size(684, 577)
+        Me.Controls.Add(Me.saveCheckbox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.runBackupBtn)
         Me.Controls.Add(Me.GroupBox2)
@@ -200,4 +214,5 @@ Partial Class Form1
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents showHideBtn As Button
     Friend WithEvents passwordTextbox As TextBox
+    Friend WithEvents saveCheckbox As CheckBox
 End Class

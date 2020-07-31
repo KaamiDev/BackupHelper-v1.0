@@ -10,18 +10,22 @@
     End Sub
 
     Private Sub runBackupBtn_Click(sender As Object, e As EventArgs) Handles runBackupBtn.Click
-        startLoading()
-        Dim pinfo As New ProcessStartInfo()
-        pinfo.FileName = "C:\Users\HP\Documents\thingy\7z.exe"
-        pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p" + passwordTextbox.Text
-        pinfo.WindowStyle = ProcessWindowStyle.Hidden
-        Dim p As Process = Process.Start(pinfo)
-        If Not p.WaitForExit(60000) Then
-            MsgBox("Process timed out..",, "Error")
+        If checkInput() Then
+            startLoading()
+            Dim pinfo As New ProcessStartInfo()
+            pinfo.FileName = "C:\Users\HP\Documents\thingy\7z.exe"
+            pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p" + passwordTextbox.Text
+            pinfo.WindowStyle = ProcessWindowStyle.Hidden
+            Dim p As Process = Process.Start(pinfo)
+            If Not p.WaitForExit(60000) Then
+                MsgBox("Process timed out..",, "Error")
+            Else
+                MsgBox("Backup Saved Successfully!",, "Success!")
+                endLoading()
+                Process.Start(DestinationTextbox.Text)
+            End If
         Else
-            MsgBox("Backup Saved Successfully!",, "Success!")
-            endLoading()
-            Process.Start(DestinationTextbox.Text)
+            MsgBox("Please make sure all fields are filled in.",, "Error")
         End If
     End Sub
 
@@ -56,4 +60,12 @@
         runBackupBtn.Enabled = True
         runBackupBtn.Text = "Run Backup"
     End Sub
+
+    Private Function checkInput()
+        If passwordTextbox.Text = "" Or backupTextbox.Text = "" Or DestinationTextbox.Text = "" Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Class

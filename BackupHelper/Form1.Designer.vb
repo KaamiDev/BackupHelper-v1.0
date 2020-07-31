@@ -35,8 +35,8 @@ Partial Class Form1
         Me.destinationDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.runBackupBtn = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.passwordTextbox = New System.Windows.Forms.TextBox()
         Me.showHideBtn = New System.Windows.Forms.Button()
+        Me.passwordTextbox = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -140,15 +140,6 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Password"
         '
-        'passwordTextbox
-        '
-        Me.passwordTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.passwordTextbox.Location = New System.Drawing.Point(21, 34)
-        Me.passwordTextbox.Name = "passwordTextbox"
-        Me.passwordTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordTextbox.Size = New System.Drawing.Size(394, 26)
-        Me.passwordTextbox.TabIndex = 0
-        '
         'showHideBtn
         '
         Me.showHideBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
@@ -158,6 +149,15 @@ Partial Class Form1
         Me.showHideBtn.TabIndex = 2
         Me.showHideBtn.Text = "Show"
         Me.showHideBtn.UseVisualStyleBackColor = True
+        '
+        'passwordTextbox
+        '
+        Me.passwordTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.passwordTextbox.Location = New System.Drawing.Point(21, 34)
+        Me.passwordTextbox.Name = "passwordTextbox"
+        Me.passwordTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.passwordTextbox.Size = New System.Drawing.Size(394, 26)
+        Me.passwordTextbox.TabIndex = 0
         '
         'Form1
         '

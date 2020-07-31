@@ -19,4 +19,14 @@
         MsgBox("Backup Saved Successfully!")
         Process.Start(DestinationTextbox.Text)
     End Sub
+
+    Private Sub showHideBtn_Click(sender As Object, e As EventArgs) Handles showHideBtn.Click
+        If showHideBtn.Text = "hide" Then
+            passwordTextbox.PasswordChar = "*"
+            showHideBtn.Text = "show"
+        Else
+            passwordTextbox.PasswordChar = ""
+            showHideBtn.Text = "hide"
+        End If
+    End Sub
 End Class

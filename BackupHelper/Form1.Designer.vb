@@ -34,9 +34,13 @@ Partial Class Form1
         Me.DestinationTextbox = New System.Windows.Forms.TextBox()
         Me.destinationDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.runBackupBtn = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.passwordTextbox = New System.Windows.Forms.TextBox()
+        Me.showHideBtn = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -118,18 +122,49 @@ Partial Class Form1
         '
         'runBackupBtn
         '
-        Me.runBackupBtn.Location = New System.Drawing.Point(265, 371)
+        Me.runBackupBtn.Location = New System.Drawing.Point(267, 464)
         Me.runBackupBtn.Name = "runBackupBtn"
         Me.runBackupBtn.Size = New System.Drawing.Size(122, 40)
         Me.runBackupBtn.TabIndex = 4
         Me.runBackupBtn.Text = "Run Backup"
         Me.runBackupBtn.UseVisualStyleBackColor = True
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.showHideBtn)
+        Me.GroupBox3.Controls.Add(Me.passwordTextbox)
+        Me.GroupBox3.Location = New System.Drawing.Point(79, 369)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(521, 74)
+        Me.GroupBox3.TabIndex = 4
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Password"
+        '
+        'passwordTextbox
+        '
+        Me.passwordTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.passwordTextbox.Location = New System.Drawing.Point(21, 34)
+        Me.passwordTextbox.Name = "passwordTextbox"
+        Me.passwordTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.passwordTextbox.Size = New System.Drawing.Size(394, 26)
+        Me.passwordTextbox.TabIndex = 0
+        '
+        'showHideBtn
+        '
+        Me.showHideBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
+        Me.showHideBtn.Location = New System.Drawing.Point(421, 34)
+        Me.showHideBtn.Name = "showHideBtn"
+        Me.showHideBtn.Size = New System.Drawing.Size(74, 26)
+        Me.showHideBtn.TabIndex = 2
+        Me.showHideBtn.Text = "Show"
+        Me.showHideBtn.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 450)
+        Me.ClientSize = New System.Drawing.Size(684, 538)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.runBackupBtn)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -144,6 +179,8 @@ Partial Class Form1
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -160,4 +197,7 @@ Partial Class Form1
     Friend WithEvents DestinationTextbox As TextBox
     Friend WithEvents destinationDialog As FolderBrowserDialog
     Friend WithEvents runBackupBtn As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents showHideBtn As Button
+    Friend WithEvents passwordTextbox As TextBox
 End Class

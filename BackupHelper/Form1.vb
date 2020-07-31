@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.IO
+
+Public Class Form1
     Private Sub backupBtn_Click(sender As Object, e As EventArgs) Handles backupBtn.Click
         backupDialog.ShowDialog()
         backupTextbox.Text = backupDialog.SelectedPath
@@ -25,7 +27,7 @@
                 Process.Start(DestinationTextbox.Text)
             End If
         Else
-            MsgBox("Please make sure all fields are filled in.",, "Error")
+            MsgBox("Please make sure all fields are filled in and valid.",, "Error")
         End If
     End Sub
 
@@ -62,10 +64,14 @@
     End Sub
 
     Private Function checkInput()
-        If passwordTextbox.Text = "" Or backupTextbox.Text = "" Or DestinationTextbox.Text = "" Then
+        If passwordTextbox.Text = "" Then
             Return False
         Else
-            Return True
+            If Directory.Exists(DestinationTextbox.Text) And Directory.Exists(backupTextbox.Text) Then
+                Return True
+            Else
+                Return False
+            End If
         End If
     End Function
 End Class

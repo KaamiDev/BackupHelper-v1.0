@@ -15,7 +15,7 @@ Public Class Form1
         If checkInput() Then
             startLoading()
             Dim pinfo As New ProcessStartInfo()
-            pinfo.FileName = "C:\Users\HP\Documents\thingy\7z.exe"
+            pinfo.FileName = My.Application.Info.DirectoryPath + "\7z.exe"
             pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p" + passwordTextbox.Text
             pinfo.WindowStyle = ProcessWindowStyle.Hidden
             Dim p As Process = Process.Start(pinfo)
@@ -86,8 +86,13 @@ Public Class Form1
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DestinationTextbox.Text = My.Settings.Destination
-        backupTextbox.Text = My.Settings.Backup
-        passwordTextbox.Text = My.Settings.Password
+        If File.Exists(My.Application.Info.DirectoryPath + "\7z.exe") Then
+            DestinationTextbox.Text = My.Settings.Destination
+            backupTextbox.Text = My.Settings.Backup
+            passwordTextbox.Text = My.Settings.Password
+        Else
+            MsgBox("7z.exe file is missing.",, "Error")
+            Me.Close()
+        End If
     End Sub
 End Class

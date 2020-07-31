@@ -16,7 +16,7 @@
         pinfo.Arguments = "a " + """" + DestinationTextbox.Text + "\backup_" + CStr(Now.ToFileTime) + ".zip"" " + """" + backupTextbox.Text + "\*"" -p@" + passwordTextbox.Text
         pinfo.WindowStyle = ProcessWindowStyle.Hidden
         Dim p As Process = Process.Start(pinfo)
-        MsgBox(pinfo.Arguments)
-
+        MsgBox("Backup Saved Successfully!")
+        Process.Start(DestinationTextbox.Text)
     End Sub
 End Class
